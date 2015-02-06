@@ -12,7 +12,9 @@
  * distributed under the License is distributed on an "AS IS" BASIS,
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
- * limitations under the License.
+ * limitations under the License.
+
+
 -->
 <manifest package="org.openintents.filemanager"
     android:installLocation="auto"
@@ -40,7 +42,8 @@
 	[5] 1.1.0: 2009-10-30
 	[3] 1.0.2: 2009-10-15
 	[2] 1.0.1: 2009-01-16 
-	[1] 1.0.0: 2008-12-10
+	[1] 1.0.0: 2008-12-10
+
     -->
 
     <uses-sdk
@@ -50,7 +53,8 @@
              If targetSdkVersion is increased from 4 to 5 or higher, 
         	the following needs to be adjusted:
              * FileManagerActivity: onKeyDown(): New way how "back" key is handled.
-            NOTE: Tested on target=9, and it works both on Android 2.3 and Android 1.6.
+            NOTE: Tested on target=9, and it works both on Android 2.3 and Android 1.6.
+
     -->
 
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
@@ -65,7 +69,7 @@
     <application
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
-        android:theme="@style/Theme.Launch"
+
         android:name="FileManagerApplication">
 
         <!-- aTrackDog metadata -->
@@ -80,11 +84,11 @@
             android:name=".FileManagerActivity"
             android:configChanges="orientation"
             android:label="@string/app_name" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+            <!--<intent-filter>-->
+                <!--<action android:name="android.intent.action.MAIN" />-->
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+                <!--<category android:name="android.intent.category.LAUNCHER" />-->
+            <!--</intent-filter>-->
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
 
@@ -114,7 +118,9 @@
 		        <category android:name="android.intent.category.DEFAULT" />
 		        <category android:name="android.intent.category.BROWSABLE" />
 		        <data android:scheme="file" android:host="*" android:mimeType="*/*"/>
-       		</intent-filter>
+       		</intent-filter>
+
+
             -->
             <!-- Save as a content: scheme with CATHEGORY_OPENABLE - the right way -->
             <intent-filter>
@@ -130,7 +136,8 @@
                  Special intent for GMail attachments. GMail doesn't use CATEGORY_OPENABLE,
             	 although it's possible to use ContentResolver.openFileReader().
             	 For further applications like GMail, just copy following five lines and change "gmail-ls"
-            	 to something else. You will also have to do some changes in SaveAsActivity.java
+            	 to something else. You will also have to do some changes in SaveAsActivity.java
+
             -->
             <!--
             ** DEACTIVATED FOR NOW, because it interferes with many commands **
@@ -138,7 +145,9 @@
 		        <action android:name="android.intent.action.VIEW" />
 		        <category android:name="android.intent.category.DEFAULT" />
 		        <data android:scheme="content" android:mimeType="*/*" android:host="gmail-ls"/>
-       		</intent-filter>
+       		</intent-filter>
+
+
             -->
         </activity>
 
@@ -159,15 +168,6 @@
             android:authorities="org.openintents.filemanager" >
         </provider>
 
-        <!-- Activities from OI Distribution Library -->
-        <activity
-            android:name="org.openintents.distribution.EulaActivity"
-            android:theme="@android:style/Theme.DeviceDefault" />
-        
-        <activity
-            android:name="org.openintents.distribution.NewVersionActivity"
-            android:theme="@android:style/Theme.DeviceDefault" />
-        
         <activity android:name=".search.SearchableActivity"
                     android:launchMode="singleTop">
             <intent-filter>

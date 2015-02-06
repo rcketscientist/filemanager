@@ -34,12 +34,13 @@ import android.os.Build.VERSION;
 import android.os.Build.VERSION_CODES;
 import android.os.Bundle;
 import android.os.Environment;
+import android.support.v4.app.FragmentActivity;
 import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 
-public class FileManagerActivity extends DistributionLibraryFragmentActivity {
+public class FileManagerActivity extends FragmentActivity {
 	private static final String FRAGMENT_TAG = "ListFragment";
     
     protected static final int REQUEST_CODE_BOOKMARKS = 1;
@@ -76,15 +77,6 @@ public class FileManagerActivity extends DistributionLibraryFragmentActivity {
 		UIUtils.setThemeFor(this);
 		
 		super.onCreate(icicle);
-
-		mDistribution.setFirst(MENU_DISTRIBUTION_START,
-				DIALOG_DISTRIBUTION_START);
-
-		// Check whether EULA has been accepted
-		// or information about new version can be presented.
-		if (mDistribution.showEulaOrNewVersion()) {
-			return;
-		}
 		
 		// Enable home button.
 		if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.ICE_CREAM_SANDWICH)
@@ -119,8 +111,7 @@ public class FileManagerActivity extends DistributionLibraryFragmentActivity {
  	public boolean onCreateOptionsMenu(Menu menu) {
  		MenuInflater inflater = new MenuInflater(this);
  		inflater.inflate(R.menu.main, menu);
- 		
- 		mDistribution.onCreateOptionsMenu(menu);
+
  		return true;
  	}
 

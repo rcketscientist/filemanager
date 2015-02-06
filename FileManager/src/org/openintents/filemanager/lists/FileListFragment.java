@@ -4,7 +4,6 @@ import java.io.File;
 import java.util.ArrayList;
 
 import org.openintents.filemanager.FileHolderListAdapter;
-import org.openintents.filemanager.R;
 import org.openintents.filemanager.files.DirectoryContents;
 import org.openintents.filemanager.files.DirectoryScanner;
 import org.openintents.filemanager.files.FileHolder;
