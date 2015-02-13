@@ -3,3 +3,7 @@
 */build-private.properties
 */local.properties
 */release
+/FileManager/gen/org/openintents/filemanager/BuildConfig.java
+/FileManager/gen/org/openintents/filemanager/R.java
+build
+/FileManager/assets
